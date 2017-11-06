@@ -38,3 +38,16 @@ Subscribe to pedometer updates.
 #### Returns
 
 - An EventSubscription object that you can call remove() on when you would like to unsubscribe the listener.
+
+#### attention
+for worked correctly pedometer on the apk you should follow this instruction : 
+Get an OAuth client ID for your app
+
+Build a standalone app and download the apk, or find one that you have already built.
+Go to the Google Developer Credentials.
+Click Create credentials, then OAuth client ID, then select the Android radio button.
+Run keytool -list -printcert -jarfile growler.apk | grep SHA1 | awk '{ print $2 }' (where growler.apk is the name of the apk produced in step 1).
+Take the output from the previous step and insert it in the Signing-certificate fingerprint field.
+Add your android.package from app.json (eg: ca.brentvatne.growlerprowler) to the Package name field.
+Press Create.
+https://forums.expo.io/t/pedometer-fails-after-building-standalon-app/4470/3
